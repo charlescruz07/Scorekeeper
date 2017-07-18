@@ -2,8 +2,10 @@ package tech.hyperdev.scorekeeper.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 
 import tech.hyperdev.scorekeeper.R;
+import tech.hyperdev.scorekeeper.fragments.ScoreFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,5 +13,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.containerOne, new ScoreFragment())
+                .commit();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.containerTwo, new ScoreFragment())
+                .commit();
     }
 }
