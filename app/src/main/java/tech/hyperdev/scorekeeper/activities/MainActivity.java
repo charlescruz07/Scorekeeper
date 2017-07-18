@@ -16,12 +16,12 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.containerOne, new ScoreFragment())
+                .replace(R.id.containerOne, new ScoreFragment().newInstance("Team 1"))
                 .commit();
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.containerTwo, new ScoreFragment())
+                .replace(R.id.containerTwo, new ScoreFragment().newInstance("Team 2"))
                 .commit();
     }
 }
