@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tech.hyperdev.scorekeeper.fragments.ScoreFragment">
+    tools:context="tech.hyperdev.scorekeeper.fragments.ScoreFragment"
+    style="?pageBackground">
 
     <TextView
         android:id="@+id/tvTeamName"
@@ -17,7 +18,8 @@
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="?textColor"/>
 
     <ImageButton
         android:id="@+id/btnPlus"
@@ -29,7 +31,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTeamName"
         app:srcCompat="@drawable/ic_plus"
-        style="@style/round_button"/>
+        style="?button"/>
 
     <ImageButton
         android:id="@+id/btnMinus"
@@ -41,7 +43,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTeamName"
         app:srcCompat="@drawable/ic_minus"
-        style="@style/round_button"/>
+        style="?button"/>
 
     <TextView
         android:id="@+id/tvScore"
@@ -52,5 +54,6 @@
         android:textSize="64sp"
         app:layout_constraintLeft_toRightOf="@+id/btnPlus"
         app:layout_constraintRight_toLeftOf="@+id/btnMinus"
-        app:layout_constraintTop_toBottomOf="@+id/tvTeamName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTeamName"
+        style="?textColor"/>
 </android.support.constraint.ConstraintLayout>

@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="DAY_MODE" parent="Theme.AppCompat.Light">
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="DAY_MODE" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="button">@style/round_button</item>
+        <item name="textColor">@style/black_text</item>
+        <item name="pageBackground">@style/white_background</item>
+        <item name="android:popupBackground">@style/white_background</item>
+        <item name="android:popupTheme" tools:targetApi="lollipop">@style/PopupWhite</item>
+        <item name="android:windowDisablePreview">true</item>
     </style>
+
+    <style name="NIGHT_MODE" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="button">@style/round_button</item>
+        <item name="textColor">@style/white_text</item>
+        <item name="pageBackground">@style/black_background</item>
+        <item name="android:popupTheme" tools:targetApi="lollipop">@style/PopupBlack</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
 </resources>

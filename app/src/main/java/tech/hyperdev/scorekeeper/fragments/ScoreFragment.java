@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +23,7 @@ public class ScoreFragment extends Fragment{
     private String teamName;
     private TextView tvTeamName, tvScore;
     private ImageButton btnPlus,btnMinus;
-    private int globalScore;
-//    OnDataPass dataPasser;
+    private int theme;
 
 
     public ScoreFragment() {
@@ -33,21 +33,19 @@ public class ScoreFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        this.theme = getArguments().getInt("theme");
+        final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), theme);
+        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_score,container,false);
+        View rootView = localInflater.inflate(R.layout.fragment_score,container,false);
         this.teamName = getArguments().getString("team");
-        this.globalScore = getArguments().getInt("score");
+
 
         tvTeamName = (TextView) rootView.findViewById(R.id.tvTeamName);
         btnPlus = (ImageButton) rootView.findViewById(R.id.btnPlus);
         btnMinus = (ImageButton) rootView.findViewById(R.id.btnMinus);
         tvScore = (TextView) rootView.findViewById(R.id.tvScore);
 
-        if (savedInstanceState != null) {
-            globalScore = savedInstanceState.getInt("myScore");
-        }
-
-        tvScore.setText(globalScore +"");
 
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +53,6 @@ public class ScoreFragment extends Fragment{
                 int score = Integer.parseInt(tvScore.getText().toString());
                 int finalScore = score + 1;
                 tvScore.setText(String.valueOf(finalScore));
-                globalScore = finalScore;
             }
         });
 
@@ -69,8 +66,6 @@ public class ScoreFragment extends Fragment{
                     finalScore = Integer.parseInt(tvScore.getText().toString());
                 }
                 tvScore.setText(String.valueOf(finalScore));
-                globalScore = finalScore;
-
             }
         });
 
@@ -78,29 +73,13 @@ public class ScoreFragment extends Fragment{
         return rootView;
     }
 
-    public static ScoreFragment newInstance(String teamName, int score) {
+    public static ScoreFragment newInstance(String teamName, int theme) {
 
         Bundle args = new Bundle();
         args.putString("team", teamName);
-        args.putInt("score",score);
+        args.putInt("theme",theme);
         ScoreFragment fragment = new ScoreFragment();
         fragment.setArguments(args);
         return fragment;
     }
-
-//    public interface OnDataPass {
-//        public void onDataPass(String teamName,int data);
-//    }
-//
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        dataPasser = (OnDataPass) context;
-//    }
-//
-//    @Override
-//    public void onDetach() {
-//        super.onDetach();
-//        dataPasser.onDataPass(tvTeamName.getText().toString(),globalScore);
-//    }
 }

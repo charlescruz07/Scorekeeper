@@ -12,4 +12,29 @@
         <item name="android:background">@drawable/button_wh</item>
     </style>
 
+    <style name="white_background">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="white_text">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="black_background">
+        <item name="android:background">@android:color/background_dark</item>
+    </style>
+
+    <style name="black_text">
+        <item name="android:textColor">@android:color/background_dark</item>
+    </style>
+
+    <style name="PopupWhite" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@android:color/white</item>
+    </style>
+
+    <style name="PopupBlack" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@android:color/background_dark</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>
